@@ -55,7 +55,7 @@ int main() {
 
   double average_time_c = time_c / runs;
   printf("Dot product in C: %.2f\n", dot_product);
-  printf("Average execution time (C): %.6f seconds\n", average_time_c);
+  printf("Average execution time in C: %.6f seconds\n", average_time_c);
 
   return 0;
 }

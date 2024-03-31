@@ -1,0 +1,7 @@
+﻿  dot_product.c
+C:\Users\jmslo\Documents\GitHub\lbyarch-mp\dot_product.c(29,9): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 10 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  lbyarch-mp.vcxproj -> C:\Users\jmslo\Documents\GitHub\lbyarch-mp\x64\Release\lbyarch-mp.exe
