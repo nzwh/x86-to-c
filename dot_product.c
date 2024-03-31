@@ -1,19 +1,14 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
+#include <time.h>
 
 const int n20 = 1048576;    // 2^20
 const int n24 = 16777216;   // 2^24
 const int n27 = 134217728;  // 2^27
 
-int dot_product(int size, double a, double b) {
-  double *vector_a = (double *)malloc(size * sizeof(double));
-  double *vector_b = (double *)malloc(size * sizeof(double));
+double dp_formula(int size, double *vector_a, double *vector_b) {
   double dot_product = 0.0;
-
-  for (int i = 0; i < size; i++) {
-    vector_a[i] = a;
-    vector_b[i] = b;
-  }
 
   for (int i = 0; i < size; i++)
     dot_product += vector_a[i] * vector_b[i];
@@ -21,7 +16,46 @@ int dot_product(int size, double a, double b) {
   return dot_product;
 }
 
+double runtime_c(double (*execution)(int, double *, double *), int size, double *vector_a, double *vector_b) {
+  clock_t start = clock();
+  double dot_product = execution(size, vector_a, vector_b);
+  clock_t end = clock();
+
+  double time = ((double)(end - start)) / CLOCKS_PER_SEC;
+  return time;
+}
+
 int main() {
-  double result = dot_product(n27, 2.0, 4.0);
-  printf("The dot product of the two vectors is: %.2f\n", result);
+  srand(time(NULL));
+
+  int size;
+  printf("Input a vector size: ");
+  scanf_s("%d", &size);
+  size = (int)pow(2, size);
+
+  double *vector_a = (double *)malloc(size * sizeof(double));
+  double *vector_b = (double *)malloc(size * sizeof(double));
+
+  int runs = 30;
+  double time_c = 0.0;
+  double time_asm = 0.0;
+  double dot_product = 0;
+
+  for (int i = 0; i < size; i++) {
+    vector_a[i] = 2.0;
+    vector_b[i] = 4.0;
+  }
+
+  for (int i = 0; i < runs; i++) {
+    double time_result_c = runtime_c(dp_formula, size, vector_a, vector_b);
+    dot_product = dp_formula(size, vector_a, vector_b);
+    
+    time_c += time_result_c;
+  }
+
+  double average_time_c = time_c / runs;
+  printf("Dot product in C: %.2f\n", dot_product);
+  printf("Average execution time (C): %.6f seconds\n", average_time_c);
+
+  return 0;
 }
