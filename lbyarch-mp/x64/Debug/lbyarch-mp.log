@@ -1,3 +1,0 @@
-﻿  dot_product.c
-C:\Users\jmslo\Documents\GitHub\lbyarch-mp\dot_product.c(29,9): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
-  lbyarch-mp.vcxproj -> C:\Users\jmslo\Documents\GitHub\lbyarch-mp\x64\Debug\lbyarch-mp.exe
