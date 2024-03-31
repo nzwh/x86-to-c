@@ -3,7 +3,7 @@
 
 const int n20 = 1048576;    // 2^20
 const int n24 = 16777216;   // 2^24
-const int n30 = 1073741824; // 2^30
+const int n27 = 134217728;  // 2^27
 
 int dot_product(int size, double a, double b) {
   double *vector_a = (double *)malloc(size * sizeof(double));
@@ -22,6 +22,6 @@ int dot_product(int size, double a, double b) {
 }
 
 int main() {
-  double result = dot_product(n20, 2.0, 4.0);
+  double result = dot_product(n27, 2.0, 4.0);
   printf("The dot product of the two vectors is: %.2f\n", result);
 }
