@@ -63,10 +63,11 @@ int main() {
         clock_t asm_end = clock(); // Timing ends
         float time_result_asm = ((float)(asm_end - asm_start)) / CLOCKS_PER_SEC;
 
+        printf("\nTest %d:\n", i + 1);
         printf("Dot product in C:    %.2f\n", dot_product_c);
         printf("Dot product in ASM:  %.2f\n", dot_product_asm);
-        printf("Runtime %d: %.6f seconds\n", i + 1, time_result_c);
-        printf("Runtime %d: %.6f seconds\n", i + 1, time_result_asm);
+        printf("Runtime in C %d: %.6f seconds\n", i + 1, time_result_c);
+        printf("Runtime in ASM %d: %.6f seconds\n", i + 1, time_result_asm);
 
         time_c += time_result_c;
         time_asm += time_result_asm;
@@ -74,6 +75,7 @@ int main() {
 
     float average_time_c = time_c / runs;
     float average_time_asm = time_asm / runs;
+    printf("\nResult:\n");
     printf("Average execution time in C: %.6f seconds\n", average_time_c);
     printf("Average execution time in Assembly: %.6f seconds\n", average_time_asm);
 
