@@ -1,0 +1,2 @@
+^D:\MASTERDRIVE\   \MACRO\LBYARCH\DOT_PRODUCT.ASM
+"C:\Program Files (x86)\SASM\NASM\nasm" -f win64 dot_product.asm
